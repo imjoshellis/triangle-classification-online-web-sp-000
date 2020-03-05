@@ -5,7 +5,7 @@ class Triangle
 
   def kind
     if @sides.include?(0) || @sides[0] > @sides[1]+@sides[2] || @sides[1] > @sides[0]+@sides[2] || @sides[2] > @sides[0]+@sides[1]
-      raise PartnerError
+      raise TriangleError
     elsif @sides[0] == @sides[1] && @sides[0] == @sides[2]
       :equilateral
     elsif @sides[0] == @sides[1] || @sides[0] == @sides[2] || @sides[1] == @sides[2]
@@ -13,5 +13,9 @@ class Triangle
     else
       :scalene
     end
+  end
+
+  class TriangleError < StandardError
+    # triangle error code
   end
 end
